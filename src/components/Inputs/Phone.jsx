@@ -1,11 +1,25 @@
 import { isValidPhoneNumber, getCountries } from "libphonenumber-js";
-import { useFormContext } from "react-hook-form";
+import { useController } from "react-hook-form";
 
 const COUNTRIES = getCountries();
 
-// eslint-disable-next-line react/prop-types
-export function Phone({ name }) {
-    const { register, formState: { errors } } = useFormContext();
+export const Phone = ({
+                          name,
+                          label,
+                          errorMessage,
+                          suppressErrorMessage,
+                          registerOptions,
+                          hidden
+                      }) => {
+    const { field: { value: phoneValue = "", onChange: onPhoneChange } } = useController({
+        name: registerOptions.phone.name + '_phone',
+        rules: registerOptions.phone
+    });
+
+    const { field: { value: countryValue = "", onChange: onCountryChange } } = useController({
+        name: name + registerOptions.country.name + '_country',
+        rules: registerOptions.country
+    });
 
     const validatePhoneNumber = (value) => {
         if (!isValidPhoneNumber(value)) {
@@ -14,21 +28,33 @@ export function Phone({ name }) {
     };
 
     return (
-        <div>
-            <select {...register(name + '_country')}>
-                {COUNTRIES.map((countryCode) => (
-                    <option key={countryCode} value={countryCode}>
-                        {countryCode}
-                    </option>
-                ))}
-            </select>
-            <input
-                type={'tel'}
-                {...register(name + '_phone', { validate: validatePhoneNumber })}
-            />
-            {errors[name + '_phone'] && <p>{errors[name + '_phone'].message}</p>}
-        </div>
+        <>
+            <div className="form-group mb-3" hidden={hidden}>
+                <select
+                    name={`${registerOptions.country.name}_country`}
+                    value={countryValue}
+                    onChange={(e) => onCountryChange(e.target.value)}
+                >
+                    {COUNTRIES.map((countryCode) => (
+                        <option key={countryCode} value={countryCode}>
+                            {countryCode}
+                        </option>
+                    ))}
+                </select>
+                <input
+                    type="tel"
+                    value={phoneValue}
+                    name={`${registerOptions.country.name}_phone`}
+                    onChange={(e) => onPhoneChange(e.target.value)}
+                    onBlur={(e) => validatePhoneNumber(e.target.value)}
+                    aria-describedby={errorMessage ? `validation-feedback-${name}` : undefined}
+                />
+                {errorMessage && !suppressErrorMessage && (
+                    <div className="invalid-feedback" id={`validation-feedback-${name}`}>
+                        {errorMessage}
+                    </div>
+                )}
+            </div>
+        </>
     );
-}
-
-
+};
