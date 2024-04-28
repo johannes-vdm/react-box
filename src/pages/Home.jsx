@@ -8,6 +8,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/error-form'}>Error Form</Link>
                 </li>
+                <li><Link to={'/v6-error-form'}>V6 Error Form</Link>
+                </li>
             </ul>
             <h1>contact form should be here</h1>
         </>

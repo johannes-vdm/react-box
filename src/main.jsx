@@ -5,14 +5,22 @@ import {Home} from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ContactForm from "./components/Form/ContactForm.jsx";
 import ErrorForm from "./components/Form/ErrorForm.jsx";
+import V6ErrorForm from "./components/Form/V6ErrorForm.jsx";
+import PropTypes from "prop-types";
+
 
 const Format = ({children}) => {
+
     return <div>
         <Link to={'/'}>
         <button>Home</button>
         </Link>
         {children}
     </div>
+}
+
+Format.propTypes = {
+    children: PropTypes.any,
 }
 
 const router = createBrowserRouter([
@@ -37,6 +45,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <ErrorForm/>
+            </Format>
+        )
+    },
+    {
+        path: '/v6-error-form',
+        element: (
+            <Format>
+                <V6ErrorForm/>
             </Format>
         )
     },
