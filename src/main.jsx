@@ -1,13 +1,16 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
 import {Home} from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import ContactForm from "./components/ContactForm.jsx";
+import ContactForm from "./components/Form/ContactForm.jsx";
+import ErrorForm from "./components/Form/ErrorForm.jsx";
 
 const Format = ({children}) => {
     return <div>
-        <button>How do you like them apples</button>
+        <Link to={'/'}>
+        <button>Home</button>
+        </Link>
         {children}
     </div>
 }
@@ -23,7 +26,19 @@ const router = createBrowserRouter([
     },
     {
         path: '/contact-form',
-        element: <ContactForm/>
+        element: (
+            <Format>
+                <ContactForm/>
+            </Format>
+        )
+    },
+    {
+        path: '/error-form',
+        element: (
+            <Format>
+                <ErrorForm/>
+            </Format>
+        )
     },
     {
         path: "*",
