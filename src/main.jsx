@@ -7,13 +7,15 @@ import ContactForm from "./components/Form/ContactForm.jsx";
 import ErrorForm from "./components/Form/ErrorForm.jsx";
 import V6ErrorForm from "./components/Form/V6ErrorForm.jsx";
 import PropTypes from "prop-types";
+import V7ErrorForm from "./components/Form/V7ErrorForm.jsx";
+import MovingDot from "./components/Form/SpeedOfReact.jsx";
 
 
 const Format = ({children}) => {
 
     return <div>
         <Link to={'/'}>
-        <button>Home</button>
+            <button>Home</button>
         </Link>
         {children}
     </div>
@@ -53,6 +55,21 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <V6ErrorForm/>
+            </Format>
+        )
+    }, {
+        path: '/v7-error-form',
+        element: (
+            <Format>
+                <V7ErrorForm/>
+            </Format>
+        )
+    },
+    {
+        path: 'speed-of-react',
+        element: (
+            <Format>
+                <MovingDot/>
             </Format>
         )
     },

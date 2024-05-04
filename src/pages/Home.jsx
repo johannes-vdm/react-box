@@ -10,6 +10,10 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/v6-error-form'}>V6 Error Form</Link>
                 </li>
+                <li><Link to={'/v7-error-form'}>V7 Error Form</Link>
+                </li>
+                <li><Link to={'speed-of-react'}>Speed of React</Link>
+                </li>
             </ul>
             <h1>contact form should be here</h1>
         </>

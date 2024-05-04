@@ -1,7 +1,7 @@
 import {FormProvider, useForm} from "react-hook-form";
 import './Forms.css';
 
-import {Phone} from '../Inputs/Phone.jsx';
+import {Phone} from '../Inputs/V6/Phone.jsx';
 import {useState} from "react";
 import CodeBlock from "../blocks/CodeBlock.jsx";
 
