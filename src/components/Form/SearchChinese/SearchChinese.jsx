@@ -25,8 +25,6 @@ export default function SearchChinese() {
             <br/>
             <SearchBar setQuery={setQuery}/>
             <hr/>
-            {/*<List items={searchFoods}/>*/}
-
             <List items={filteredFoods} />
         </>
     );
