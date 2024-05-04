@@ -1,31 +1,40 @@
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export default function MovingDot() {
-    const [delay, setDelay] = useState(0);
+    const [totalDelay, setTotalDelay] = useState(0);
     const [position, setPosition] = useState({
         x: 0,
         y: 0
     });
+    const [startTime, setStartTime] = useState(0);
 
-    let start = 0;
-    let end = 0;
+    useEffect(() => {
+        setStartTime(performance.now());
+    }, []);
+
+    useEffect(() => {
+        const endTime = performance.now();
+        console.table([{ startTime, endTime }]);
+        setTotalDelay(endTime - startTime);
+    }, [startTime]);
+
+    const handlePointerMove = e => {
+        const currentTime = performance.now();
+        setStartTime(currentTime);
+        setPosition({
+            x: e.clientX,
+            y: e.clientY
+        });
+    };
 
     return (
         <>
             <h2>X: {position.x}</h2>
             <h2>Y: {position.y}</h2>
-            <h1>Delay: {delay} ms</h1>
+            <h1>Delay: {totalDelay} ms</h1>
+            <p>{startTime}</p>
             <div
-                onPointerMove={e => {
-                    start = Date.now();
-                    end = 0;
-                    setPosition({
-                        x: e.clientX,
-                        y: e.clientY
-                    });
-                    end =  Date.now() - start;
-                    setDelay(end);
-                }}
+                onPointerMove={handlePointerMove}
                 style={{
                     position: 'relative',
                     width: '100%',
@@ -41,7 +50,7 @@ export default function MovingDot() {
                     top: -160,
                     width: 20,
                     height: 20,
-                }}/>
+                }} />
             </div>
         </>
     )
