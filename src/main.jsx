@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import V7ErrorForm from "./components/Form/Forms/V7ErrorForm.jsx";
 import MovingDot from "./components/Form/SpeedOfReact.jsx";
 import TravelPlan from "./components/Form/PackingList/App.jsx";
-
+import SearchChinese from "./components/Form/SearchChinese/SearchChinese.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
@@ -78,6 +78,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <TravelPlan/>
+            </Format>
+        )
+    },
+    {
+        path: 'search-chinese',
+        element: (
+            <Format>
+                <SearchChinese/>
             </Format>
         )
     },

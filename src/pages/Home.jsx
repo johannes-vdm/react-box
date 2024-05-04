@@ -16,6 +16,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/packing-list'}>Packing list</Link>
                 </li>
+                <li><Link to={'/search-chinese'}>Search Chinese</Link>
+                </li>
             </ul>
         </>
     )
