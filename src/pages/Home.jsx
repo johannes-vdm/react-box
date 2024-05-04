@@ -15,7 +15,6 @@ export const Home = () => {
                 <li><Link to={'speed-of-react'}>Speed of React</Link>
                 </li>
             </ul>
-            <h1>contact form should be here</h1>
         </>
     )
 }
