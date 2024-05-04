@@ -1,10 +1,9 @@
 import {FormProvider, useForm} from "react-hook-form";
 import './Forms.css';
 
-import {Phone} from '../Inputs/V6/Phone.jsx';
+import {Phone} from '../../Inputs/V6/Phone.jsx';
 import {useState} from "react";
-import CodeBlock from "../blocks/CodeBlock.jsx";
-
+import CodeBlock from "../../Blocks/CodeBlock.jsx";
 
 export default function V6ErrorForm() {
     const methods = useForm()

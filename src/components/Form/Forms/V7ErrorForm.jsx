@@ -1,6 +1,6 @@
-import {Phone} from '../Inputs/V7/Phone.jsx'
+import {Phone} from '../../Inputs/V7/Phone.jsx'
 import {FormProvider, useForm} from "react-hook-form";
-// import CodeBlock from "../blocks/CodeBlock.jsx";
+// import CodeBlock from "../Blocks/CodeBlock.jsx";
 // import {useState} from "react";
 
 

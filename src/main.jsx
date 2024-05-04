@@ -3,14 +3,16 @@ import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
 import {Home} from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import ContactForm from "./components/Form/ContactForm.jsx";
-import ErrorForm from "./components/Form/ErrorForm.jsx";
-import V6ErrorForm from "./components/Form/V6ErrorForm.jsx";
+import ContactForm from "./components/Form/Forms/ContactForm.jsx";
+import ErrorForm from "./components/Form/Forms/ErrorForm.jsx";
+import V6ErrorForm from "./components/Form/Forms/V6ErrorForm.jsx";
 import PropTypes from "prop-types";
-import V7ErrorForm from "./components/Form/V7ErrorForm.jsx";
+import V7ErrorForm from "./components/Form/Forms/V7ErrorForm.jsx";
 import MovingDot from "./components/Form/SpeedOfReact.jsx";
+import TravelPlan from "./components/Form/PackingList/App.jsx";
 
 
+// eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
 
     return <div>
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <MovingDot/>
+            </Format>
+        )
+    },
+    {
+        path: 'packing-list',
+        element: (
+            <Format>
+                <TravelPlan/>
             </Format>
         )
     },

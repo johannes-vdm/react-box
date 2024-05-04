@@ -12,7 +12,9 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/v7-error-form'}>V7 Error Form</Link>
                 </li>
-                <li><Link to={'speed-of-react'}>Speed of React</Link>
+                <li><Link to={'/speed-of-react'}>Speed of React</Link>
+                </li>
+                <li><Link to={'/packing-list'}>Packing list</Link>
                 </li>
             </ul>
         </>

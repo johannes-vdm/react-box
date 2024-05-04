@@ -1,6 +1,5 @@
-import * as React from "react";
 import { useForm, useController } from "react-hook-form";
-import CodeBlock from "../blocks/CodeBlock.jsx";
+import CodeBlock from "../../Blocks/CodeBlock.jsx";
 import './Forms.css';
 
 function Input(props) {

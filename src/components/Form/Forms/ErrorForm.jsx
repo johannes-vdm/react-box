@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { useForm } from "react-hook-form";
 import './Forms.css';
-import CodeBlock from "../blocks/CodeBlock.jsx";
+import CodeBlock from "../../Blocks/CodeBlock.jsx";
 
 export default function ErrorForm() {
     const { register, formState: { errors }, handleSubmit } = useForm();

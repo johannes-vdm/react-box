@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import CodeBlock from "../blocks/CodeBlock.jsx";
+import CodeBlock from "../Blocks/CodeBlock.jsx";
 
 export default function MovingDot() {
     const [renderData, setRenderData] = useState({
