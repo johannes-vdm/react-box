@@ -13,6 +13,9 @@ import TravelPlan from "./components/Sections/PackingList/App.jsx";
 import SearchChinese from "./components/Sections/SearchChinese/SearchChinese.jsx";
 import RetainingState from "./components/Sections/RetainingState.jsx";
 
+import './reset.css'
+import KeysOrder from "./components/Sections/Keys.jsx";
+
 // eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
 
@@ -95,6 +98,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <RetainingState/>
+            </Format>
+        )
+    },
+    {
+        path: 'keys-order',
+        element: (
+            <Format>
+                <KeysOrder/>
             </Format>
         )
     },

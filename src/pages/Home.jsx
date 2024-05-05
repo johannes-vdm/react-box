@@ -20,6 +20,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/retaining-state'}>Retaining State</Link>
                 </li>
+                <li><Link to={'/keys-order'}>Keys Order</Link>
+                </li>
             </ul>
         </>
     )
