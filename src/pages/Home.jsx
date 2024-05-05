@@ -18,6 +18,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/search-chinese'}>Search Chinese</Link>
                 </li>
+                <li><Link to={'/retaining-state'}>Retaining State</Link>
+                </li>
             </ul>
         </>
     )

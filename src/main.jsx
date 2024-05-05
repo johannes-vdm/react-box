@@ -3,14 +3,15 @@ import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
 import {Home} from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import ContactForm from "./components/Form/Forms/ContactForm.jsx";
-import ErrorForm from "./components/Form/Forms/ErrorForm.jsx";
-import V6ErrorForm from "./components/Form/Forms/V6ErrorForm.jsx";
+import ContactForm from "./components/Sections/Forms/ContactForm.jsx";
+import ErrorForm from "./components/Sections/Forms/ErrorForm.jsx";
+import V6ErrorForm from "./components/Sections/Forms/V6ErrorForm.jsx";
 import PropTypes from "prop-types";
-import V7ErrorForm from "./components/Form/Forms/V7ErrorForm.jsx";
-import MovingDot from "./components/Form/SpeedOfReact.jsx";
-import TravelPlan from "./components/Form/PackingList/App.jsx";
-import SearchChinese from "./components/Form/SearchChinese/SearchChinese.jsx";
+import V7ErrorForm from "./components/Sections/Forms/V7ErrorForm.jsx";
+import MovingDot from "./components/Sections/SpeedOfReact.jsx";
+import TravelPlan from "./components/Sections/PackingList/App.jsx";
+import SearchChinese from "./components/Sections/SearchChinese/SearchChinese.jsx";
+import RetainingState from "./components/Sections/RetainingState.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
@@ -86,6 +87,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <SearchChinese/>
+            </Format>
+        )
+    },
+    {
+        path: 'retaining-state',
+        element: (
+            <Format>
+                <RetainingState/>
             </Format>
         )
     },
