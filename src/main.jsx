@@ -15,6 +15,7 @@ import RetainingState from "./components/Sections/RetainingState.jsx";
 
 import './reset.css'
 import KeysOrder from "./components/Sections/Keys.jsx";
+import NoIndexAsKey from "./components/Sections/NoIndexAsKey/NoIndexAsKey.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
@@ -106,6 +107,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <KeysOrder/>
+            </Format>
+        )
+    },
+    {
+        path: "no-index",
+        element: (
+            <Format>
+                <NoIndexAsKey/>
             </Format>
         )
     },

@@ -22,6 +22,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/keys-order'}>Keys Order</Link>
                 </li>
+                <li><Link to={'/no-index'}>No index as key</Link>
+                </li>
             </ul>
         </>
     )
