@@ -28,6 +28,7 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/advanced-state'}>Advanced state</Link>
                 </li>
+                <li><Link to={'/image-context'}>ImageContext</Link></li>
             </ul>
         </>
     )

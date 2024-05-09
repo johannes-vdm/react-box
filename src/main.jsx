@@ -19,15 +19,20 @@ import KeysOrder from "./components/Sections/Keys.jsx";
 import {NoIndexAsKey} from "./components/Sections/NoIndexAsKey.jsx";
 import ReactReducer from "./components/Sections/ReactReducer/ReactReducer.jsx";
 import AdvancedState from "./components/Sections/AdvancedState/App.jsx";
+import ImageContext from "./components/Sections/UseContext/ImageContext.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components,react/prop-types
 const Format = ({children}) => {
 
     return <div>
-        <Link to={'/'}>
-            <button>Home</button>
-        </Link>
-        {children}
+        <div>
+            <Link to={'/'}>
+                <button>Home</button>
+            </Link>
+            <br/>
+            <br/>
+            {children}
+        </div>
     </div>
 }
 
@@ -130,6 +135,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <AdvancedState/>
+            </Format>
+        )
+    },
+    {
+        path: "image-context",
+        element: (
+            <Format>
+                <ImageContext/>
             </Format>
         )
     },
