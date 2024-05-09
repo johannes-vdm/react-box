@@ -72,11 +72,9 @@ function LargeTest() {
         console.log(action);
         switch (action.type) {
             case 'change_text': {
-                return (
-                    {
-                        'data': action.value
-                    }
-                )
+                return {
+                    'data':action.value
+                }
             }
         }
     }

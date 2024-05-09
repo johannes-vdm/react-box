@@ -26,6 +26,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/react-reducer'}>React reducer</Link>
                 </li>
+                <li><Link to={'/advanced-state'}>Advanced state</Link>
+                </li>
             </ul>
         </>
     )

@@ -17,6 +17,7 @@ import './reset.css'
 import KeysOrder from "./components/Sections/Keys.jsx";
 import NoIndexAsKey from "./components/Sections/NoIndexAsKey/NoIndexAsKey.jsx";
 import ReactReducer from "./components/Sections/ReactReducer/ReactReducer.jsx";
+import AdvancedState from "./components/Sections/AdvancedState/App.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Format = ({children}) => {
@@ -124,6 +125,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <ReactReducer/>
+            </Format>
+        )
+    },
+    {
+        path: "advanced-state",
+        element: (
+            <Format>
+                <AdvancedState/>
             </Format>
         )
     },
