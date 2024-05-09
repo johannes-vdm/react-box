@@ -24,6 +24,8 @@ export const Home = () => {
                 </li>
                 <li><Link to={'/no-index'}>No index as key</Link>
                 </li>
+                <li><Link to={'/react-reducer'}>React reducer</Link>
+                </li>
             </ul>
         </>
     )
