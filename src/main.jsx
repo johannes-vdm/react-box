@@ -1,6 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
+
+import './reset.css'
+
 import {Home} from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ContactForm from "./components/Sections/Forms/ContactForm.jsx";
@@ -12,7 +15,6 @@ import TravelPlan from "./components/Sections/PackingList/App.jsx";
 import SearchChinese from "./components/Sections/SearchChinese/SearchChinese.jsx";
 import RetainingState from "./components/Sections/RetainingState.jsx";
 
-import './reset.css'
 import KeysOrder from "./components/Sections/Keys.jsx";
 import {NoIndexAsKey} from "./components/Sections/NoIndexAsKey.jsx";
 import ReactReducer from "./components/Sections/ReactReducer/ReactReducer.jsx";
