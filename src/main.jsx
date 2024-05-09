@@ -6,7 +6,6 @@ import NotFound from "./pages/NotFound.jsx";
 import ContactForm from "./components/Sections/Forms/ContactForm.jsx";
 import ErrorForm from "./components/Sections/Forms/ErrorForm.jsx";
 import V6ErrorForm from "./components/Sections/Forms/V6ErrorForm.jsx";
-import PropTypes from "prop-types";
 import V7ErrorForm from "./components/Sections/Forms/V7ErrorForm.jsx";
 import MovingDot from "./components/Sections/SpeedOfReact.jsx";
 import TravelPlan from "./components/Sections/PackingList/App.jsx";
@@ -15,11 +14,11 @@ import RetainingState from "./components/Sections/RetainingState.jsx";
 
 import './reset.css'
 import KeysOrder from "./components/Sections/Keys.jsx";
-import NoIndexAsKey from "./components/Sections/NoIndexAsKey/NoIndexAsKey.jsx";
+import {NoIndexAsKey} from "./components/Sections/NoIndexAsKey.jsx";
 import ReactReducer from "./components/Sections/ReactReducer/ReactReducer.jsx";
 import AdvancedState from "./components/Sections/AdvancedState/App.jsx";
 
-// eslint-disable-next-line react-refresh/only-export-components
+// eslint-disable-next-line react-refresh/only-export-components,react/prop-types
 const Format = ({children}) => {
 
     return <div>
@@ -28,10 +27,6 @@ const Format = ({children}) => {
         </Link>
         {children}
     </div>
-}
-
-Format.propTypes = {
-    children: PropTypes.any,
 }
 
 const router = createBrowserRouter([
