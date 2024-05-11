@@ -2,7 +2,7 @@ import { useState, createContext, useContext } from "react";
 import { places } from "./data.jsx";
 import { getImageUrl } from "./utils.jsx";
 
-const ImageSizeContext = createContext(false);
+const ImageSizeContext = createContext(150);
 
 export default function ImageContext() {
     const [isLarge, setIsLarge] = useState(false);
@@ -53,6 +53,7 @@ function Place({ place }) {
 // eslint-disable-next-line react/prop-types
 function PlaceImage({ place }) {
     const imageSize = useContext(ImageSizeContext);
+    console.log(ImageSizeContext);
     return (
         <img
             src={getImageUrl(place)}
