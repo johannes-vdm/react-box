@@ -17,9 +17,8 @@ export const Home = () => {
                 <li><Link to={'/react-reducer'}>React reducer</Link></li>
                 <li><Link to={'/advanced-state'}>Advanced state</Link></li>
                 <li><Link to={'/image-context'}>ImageContext</Link></li>
-                <li><Link to={'react-navigation/page1'}><small style={{color: "greenyellow"}}>*</small>React Navigation</Link></li>
-
-                {/*<li><Link to={'/react-navigation/page2'}>React Navigation Page2</Link></li>*/}
+                <li><Link to={'/react-navigation/page1'}><small style={{color: "greenyellow"}}>*</small>React Navigation</Link></li>
+                <li><Link to={'/page-2'}>React Navigation upgraded</Link></li>
             </ul>
         </>
     );

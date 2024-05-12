@@ -21,6 +21,7 @@ import ReactReducer from "./components/Sections/ReactReducer/ReactReducer.jsx";
 import AdvancedState from "./components/Sections/AdvancedState/App.jsx";
 import ImageContext from "./components/Sections/UseContext/ImageContext.jsx";
 import FormPage from "./components/Sections/ReactNaviation.jsx";
+import Page2 from "./components/Sections/Navigation2/Form.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components,react/prop-types
 const Format = ({children}) => {
@@ -147,19 +148,19 @@ const router = createBrowserRouter([
             </Format>
         )
     },
-    // {
-    //     path: "react-navigation",
-    //     element: (
-    //         <Format>
-    //             <ReactNaviation/>
-    //         </Format>
-    //     )
-    // },
     {
         path: "react-navigation/page1",
         element: (
             <Format>
                 <FormPage/>
+            </Format>
+        )
+    },
+    {
+        path: "page-2",
+        element: (
+            <Format>
+                <Page2/>
             </Format>
         )
     },
