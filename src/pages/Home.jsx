@@ -19,6 +19,7 @@ export const Home = () => {
                 <li><Link to={'/image-context'}>ImageContext</Link></li>
                 <li><Link to={'/react-navigation/page1'}><small style={{color: "greenyellow"}}>*</small>React Navigation</Link></li>
                 <li><Link to={'/page-2'}>React Navigation upgraded</Link></li>
+                <li><Link to={'/react-nav-2'}>Form alert, data save</Link></li>
             </ul>
         </>
     );

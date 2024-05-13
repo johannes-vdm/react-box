@@ -22,6 +22,7 @@ import AdvancedState from "./components/Sections/AdvancedState/App.jsx";
 import ImageContext from "./components/Sections/UseContext/ImageContext.jsx";
 import FormPage from "./components/Sections/ReactNaviation.jsx";
 import Page2 from "./components/Sections/Navigation2/Form.jsx";
+import PreventSubmit from "./components/Sections/ReactNavigation2/App.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components,react/prop-types
 const Format = ({children}) => {
@@ -153,6 +154,14 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <FormPage/>
+            </Format>
+        )
+    },
+    {
+        path: "react-nav-2",
+        element: (
+            <Format>
+                <PreventSubmit/>
             </Format>
         )
     },
