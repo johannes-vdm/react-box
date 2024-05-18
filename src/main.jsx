@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
 
@@ -40,12 +40,13 @@ const Format = ({isHome, children}) => {
         }
     };
 
-    // Call checkServerStatus when component mounts
-    checkServerStatus();
+    useEffect(() => {
+        checkServerStatus().then(()=>{})
+    }, []);
 
     return (
         <div>
-            <p>JSON Server: <span style={{color: "greenyellow"}}>{serverStatus}</span></p>
+            <p>JSON Server: <span style={{color: serverStatus ? 'greenyellow' : 'orangered'}}>{serverStatus}</span></p>
             <div>
                 {!isHome && <Link to={'/'}>
                     <button>Home</button>
