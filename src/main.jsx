@@ -27,11 +27,13 @@ import PreventSubmit from "./components/Sections/ReactNavigation2/App.jsx";
 
 // eslint-disable-next-line react/prop-types,react-refresh/only-export-components
 const Format = ({isHome, children}) => {
-    const [serverStatus, setServerStatus] = useState('checking...');
+    const [serverStatus, setServerStatus] = useState(false);
+
+    const jsonServerURL = 'http://localhost:3000';
 
     const checkServerStatus = async () => {
         try {
-            const response = await fetch('http://localhost:3000');
+            const response = await fetch(jsonServerURL);
             console.log(response);
             setServerStatus(response.ok ? 'active' : 'not active');
         } catch (error) {
@@ -46,14 +48,13 @@ const Format = ({isHome, children}) => {
 
     return (
         <div>
-            <p>JSON Server: <span style={{color: serverStatus ? 'greenyellow' : 'orangered'}}>{serverStatus}</span></p>
+            <p style={{paddingBottom: '7px', paddingTop: '7px '}}><Link target={"_blank"} to={jsonServerURL}>JSON Server: </Link><span style={{color: serverStatus ? 'greenyellow' : 'orangered'}}>{serverStatus}</span></p>
             <div>
                 {!isHome && <Link to={'/'}>
                     <button>Home</button>
                     <br/>
                     <br/>
                 </Link>}
-
                 {children}
             </div>
         </div>
