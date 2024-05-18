@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useState} from "react";
 import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, Link, RouterProvider,} from "react-router-dom";
 
@@ -24,26 +25,48 @@ import FormPage from "./components/Sections/ReactNaviation.jsx";
 import Page2 from "./components/Sections/Navigation2/Form.jsx";
 import PreventSubmit from "./components/Sections/ReactNavigation2/App.jsx";
 
-// eslint-disable-next-line react-refresh/only-export-components,react/prop-types
-const Format = ({children}) => {
+// eslint-disable-next-line react/prop-types,react-refresh/only-export-components
+const Format = ({isHome, children}) => {
+    const [serverStatus, setServerStatus] = useState('checking...');
 
-    return <div>
+    const checkServerStatus = async () => {
+        try {
+            const response = await fetch('http://localhost:3000');
+            console.log(response);
+            setServerStatus(response.ok ? 'active' : 'not active');
+        } catch (error) {
+            console.error('Error checking server status:', error);
+            setServerStatus('not active');
+        }
+    };
+
+    // Call checkServerStatus when component mounts
+    checkServerStatus();
+
+    return (
         <div>
-            <Link to={'/'}>
-                <button>Home</button>
-            </Link>
-            <br/>
-            <br/>
-            {children}
+            <p>JSON Server: <span style={{color: "greenyellow"}}>{serverStatus}</span></p>
+            <div>
+                {!isHome && <Link to={'/'}>
+                    <button>Home</button>
+                    <br/>
+                    <br/>
+                </Link>}
+
+                {children}
+            </div>
         </div>
-    </div>
-}
+    );
+};
+
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: (
-            <Home/>
+            <Format isHome={true}>
+                <Home/>
+            </Format>
         )
     },
     {
