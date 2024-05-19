@@ -1,14 +1,19 @@
-export const BUY_CAKE = 'BUY_CAKE';
-export const RESTOCK_CAKE =  'RESTOCK_CAKE';
-
+// actions.js
 export const buyCake = () => {
     return {
-        type: BUY_CAKE
+        type: 'BUY_CAKE'
     };
 };
 
 export const restockCake = () => {
     return {
-        type: RESTOCK_CAKE
-    }
-}
+        type: 'RESTOCK_CAKE'
+    };
+};
+
+// export const addCake = () => {
+//     return {
+//         type: 'ADD_CAKE',
+//         payload: id
+//     };
+// };

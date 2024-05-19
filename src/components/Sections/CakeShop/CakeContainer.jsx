@@ -1,30 +1,48 @@
-import {connect} from 'react-redux';
-import {buyCake, restockCake} from './actions';
+import {useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { buyCake, restockCake } from './actions';
 
-// eslint-disable-next-line react/prop-types,react-refresh/only-export-components
-const CakeContainer = ({cakes, buyCake, restockCake}) => {
+const CakeContainer = () => {
+    const cakes = useSelector(state => state.cakes);
+    const dispatch = useDispatch();
+
     const handleBuyCake = () => {
-        buyCake();
+        dispatch(buyCake());
     };
 
     const handleRestockCake = () => {
-        restockCake();
-    }
+        dispatch(restockCake());
+    };
+
+    const handleAddCake = (id) => {
+        dispatch({
+            type: 'ADD_CAKE',
+            payload: id
+        });
+    };
+
+    const loadCakes = () => {
+        dispatch(restockCake());
+    };
+
+    console.log(cakes);
+
+    useEffect(() => {
+        return loadCakes;
+    }, [dispatch]);
 
     return (
         <div>
+            <h2>Cakes Available: {cakes?.length}</h2>
 
-            {/* eslint-disable-next-line react/prop-types */}
-            <h2>Cakes Available: {cakes.length}</h2>
+            <button onClick={handleRestockCake}>RESET</button>
 
-            {/* eslint-disable-next-line react/prop-types */}
-            {cakes.length > 0 ? (
+            {cakes?.length > 0 ? (
                 <div>
-                    {/* eslint-disable-next-line react/prop-types */}
                     <h3>Cake ID: {cakes[0].id}</h3>
-                    {/* eslint-disable-next-line react/prop-types */}
                     <p>Color: {cakes[0].color}</p>
                     <button onClick={handleBuyCake}>Buy Cake</button>
+
                 </div>
             ) : (
                 <>
@@ -32,32 +50,22 @@ const CakeContainer = ({cakes, buyCake, restockCake}) => {
                     <button onClick={handleRestockCake}>Restock</button>
                 </>
             )}
-            {/* eslint-disable-next-line react/prop-types */}
-            {cakes.map((cake) => {
-                return <li key={cake.id} style={{
-                    background: cake.color,
-                    filter: 'invert(100%)',
-                    color: 'white'
-                }}>{cake.id}: {cake.color}</li>
-            })}
 
+            <ul>
+                {cakes && cakes.map((cake, index) => (
+                    <li key={index} style={{background: cake.color, filter: 'invert(100%)', color: 'white'}}>
+                        {cake.id}: {cake.color}
+                        <button onClick={()=>{
+                            dispatch({type: "DELETE_CAKE", payload: {index: index}})
+                        }}>DELETE</button>
+                    </li>
+                ))}
+            </ul>
+
+            <button onClick={() => handleAddCake(1)}>Add Cake with ID 1</button>
+            <button onClick={() => handleAddCake(2)}>Add Cake with ID 2</button>
         </div>
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        cakes: state.cakes
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        buyCake: () => dispatch(buyCake()),
-        restockCake: () => dispatch(restockCake()),
-    };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
-
+export default CakeContainer;
