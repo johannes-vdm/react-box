@@ -24,6 +24,8 @@ import ImageContext from "./components/Sections/UseContext/ImageContext.jsx";
 import FormPage from "./components/Sections/ReactNaviation.jsx";
 import Page2 from "./components/Sections/Navigation2/Form.jsx";
 import PreventSubmit from "./components/Sections/ReactNavigation2/App.jsx";
+import CompleteForm from "./components/Sections/CompleteForm/CompleteForm.jsx";
+import {App as CakeShop} from './components/Sections/CakeShop/App.jsx'
 
 // eslint-disable-next-line react/prop-types,react-refresh/only-export-components
 const Format = ({isHome, children}) => {
@@ -43,12 +45,15 @@ const Format = ({isHome, children}) => {
     };
 
     useEffect(() => {
-        checkServerStatus().then(()=>{})
+        checkServerStatus().then(() => {
+        })
     }, []);
 
     return (
         <div>
-            <p style={{paddingBottom: '7px', paddingTop: '7px '}}><Link target={"_blank"} to={jsonServerURL}>JSON Server: </Link><span style={{color: serverStatus ? 'greenyellow' : 'orangered'}}>{serverStatus}</span></p>
+            <p style={{paddingBottom: '7px', paddingTop: '7px '}}><Link target={"_blank"} to={jsonServerURL}>JSON
+                Server: </Link><span style={{color: serverStatus ? 'greenyellow' : 'orangered'}}>{serverStatus}</span>
+            </p>
             <div>
                 {!isHome && <Link to={'/'}>
                     <button>Home</button>
@@ -195,6 +200,22 @@ const router = createBrowserRouter([
         element: (
             <Format>
                 <Page2/>
+            </Format>
+        )
+    },
+    {
+        path: "complete-form",
+        element: (
+            <Format>
+                <CompleteForm/>
+            </Format>
+        )
+    },
+    {
+        path: "cake-shop",
+        element: (
+            <Format>
+                <CakeShop/>
             </Format>
         )
     },
