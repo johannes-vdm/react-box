@@ -30,5 +30,11 @@
       "email": "johndoe@example.com",
       "number": "09044444444"
     }
+  ],
+  "cakes": [
+    {
+      "id": "1",
+      "color": "Red"
+    }
   ]
 }
